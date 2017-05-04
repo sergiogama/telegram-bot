@@ -20,10 +20,10 @@ conversation.call = function(payload, callback) {
     wdc_conversation.message(payload, function(err, res) {
         if (err) {
             console.log('error:' + err);
-            callback(err, res);
+            return;
         }
         context = res.context;
-        callback(err, res);
+        callback(res);
     });
 }
 

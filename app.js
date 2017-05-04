@@ -28,7 +28,7 @@ telegramBot.on('message', function(msg) {
                         text: resposta.toString()
                     }
                 };
-                conversation.call(payload, function(err, res) {
+                conversation.call(payload, function(res) {
                     tts.sintetizar(res.output.text[0], function() {
                         telegramBot.sendVoice(chatId, 'voice-audio.ogg');
                     });
@@ -43,7 +43,7 @@ telegramBot.on('message', function(msg) {
             input: msg
         };
 
-        conversation.call(payload, function(err, resposta) {
+        conversation.call(payload, function(resposta) {
             telegramBot.sendMessage(chatId, resposta.output.text[0]);
 
         });

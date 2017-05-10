@@ -11,7 +11,6 @@ var text_to_speech = watson.text_to_speech({
 });
 
 TTS.sintetizar = function(message, callback) {
-    	
     	var params = {
         text: message,
         voice: config.texttospeech.voice,

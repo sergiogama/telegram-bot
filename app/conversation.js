@@ -10,19 +10,16 @@ var wdc_conversation = wdc.conversation({
     version_date: config.conversation.versiond
 });
 
-var context = {};
 var workspace = config.conversation.workspace;
 
 conversation.call = function(payload, callback) {
     payload.workspace_id = workspace;
-    payload.context = context;
 
     wdc_conversation.message(payload, function(err, res) {
         if (err) {
             console.log('error:' + err);
             return;
         }
-        context = res.context;
         callback(res);
     });
 }
